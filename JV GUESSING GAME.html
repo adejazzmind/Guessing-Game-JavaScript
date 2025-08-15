@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUESSING GAME</title>
+    <style>
+        body {
+            background-color: yellow;
+            font-family: 'Trebuchet MS';
+        }
+        
+        h1 {
+            font-size: 35px;
+        }
+        
+        h1 {
+            font-size: 21px;
+            margin-top: 20px;
+        }
+        
+        .calculator {
+            width: 400px;
+            height: 450px;
+            background-color: black;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            padding: 20px 0px 0px 100px;
+            border-radius: 50px;
+            color: white;
+        }
+        
+        input {
+            padding: 7px;
+            width: 70%;
+            margin-top: 7px;
+        }
+        
+    </style>
+</head>
+<body>
+     <!-- Calling Calculate function defined in app.js -->
+    <script>
+        alert("Welcome to the Guessing Game!");
+        alert("You have three attempts to guess a number");
+        alert("The number is between 1 and 50");
+        alert("Good luck!");
+        var randomNumber = Math.floor(Math.random() * 50) + 1; // Random number between 1 and 50
+        var attempts = 3; // Number of attempts allowed
+        for (var i = 0; i < attempts; i++) {
+            var randomNumbers = prompt("Enter guess");
+            if (randomNumbers < 1 || randomNumbers > 50) {
+            alert("Out of bounds! Please enter a number between 1 and 50.");
+        continue;
+        }
+        if(isNaN(randomNumbers)){
+            alert("Invalid input! Please enter a number.");
+        continue;
+        }
+        if (randomNumbers === randomNumber) {
+            alert("Congratulations! You guessed right! ..... HURRAAY!" );
+            break;
+        }   else if (randomNumbers !== randomNumber) {
+            alert("wrong guess! you have " + (attempts - i - 1) + " attemts left. Try again.");
+        }
+    } if (i === attempts) {
+        alert("Sorry, you have used all your attempts. The correct number was " + randomNumber + ". Game Over!");
+    } 
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
